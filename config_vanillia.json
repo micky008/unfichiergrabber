@@ -1,0 +1,31 @@
+{
+    "login": "",
+    "password": "",
+    "destFolder": "dest_folder",
+    "series": [
+        {
+            "nom": "un titre",
+            "extention" : "mp4",
+            "saisons": {
+                "s1": [
+                    "https://1fichier.com/?code",
+                    "https://1fichier.com/?code2"
+                ],
+                "s2": [
+                    "https://1fichier.com/?code3"
+                ]
+            }
+        }
+    ],
+    "films": [
+        {
+            "nom": "titre 2.mp4",
+            "destFolder" : "pas obligatoire",
+            "lien": "https://1fichier.com/?codeX"
+        },
+        {
+            "nom": "titre 3.avi",
+            "lien": "https://1fichier.com/?codeY"
+        }
+    ]
+}
