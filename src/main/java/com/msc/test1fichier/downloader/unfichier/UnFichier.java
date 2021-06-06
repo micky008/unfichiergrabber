@@ -1,7 +1,9 @@
-package com.msc.test1fichier.unfichier;
+package com.msc.test1fichier.downloader.unfichier;
 
-import com.msc.test1fichier.unfichier.HttpClient.Header;
-import com.msc.test1fichier.unfichier.HttpClient.HttpResponse;
+import com.msc.test1fichier.downloader.Downloader;
+import com.msc.test1fichier.http.HttpClient;
+import com.msc.test1fichier.http.HttpClient.Header;
+import com.msc.test1fichier.http.HttpClient.HttpResponse;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -13,7 +15,7 @@ import java.util.Map;
  *
  * @author Michael
  */
-public class UnFichier {
+public class UnFichier implements Downloader {
 
     private List<Header> headers;
 
@@ -28,6 +30,9 @@ public class UnFichier {
      * @return toujours true pour le moment.
      */
     public boolean init(String login, String password) {
+        if (!headers.isEmpty()){
+            return true;
+        }
         URL loginURL = null;
         try {
             loginURL = new URL("https://1fichier.com/login.pl");
@@ -72,6 +77,11 @@ public class UnFichier {
 
     public InputStream download(URL url) {
         return HttpClient.download(url, this.headers);
+    }
+
+    @Override
+    public boolean match(URL url) {
+        return url.getPath().toLowerCase().contains("1fichier.com");
     }
 
 }

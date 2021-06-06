@@ -1,4 +1,4 @@
-package com.msc.test1fichier.unfichier;
+package com.msc.test1fichier.http;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -25,7 +25,7 @@ import javax.net.ssl.SSLSession;
  *
  * @author Michael
  */
-class HttpClient {
+public class HttpClient {
 
     static InputStream download(URL url) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -230,8 +230,8 @@ class HttpClient {
 
     public static class Header {
 
-        String key;
-        String value;
+        public String key;
+        public String value;
     }
 
 }
